@@ -1,4 +1,4 @@
-rank = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jester', 'Queen', 'King', 'Ace')
+ranks = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jester', 'Queen', 'King', 'Ace')
 suits = ('hearts', 'diamonds', 'clubs', 'spades')
 deck = [(rank, suit) for rank in ranks for suit in suits]
 import random
@@ -6,8 +6,9 @@ random.shuffle(deck)
 p1_deck = deck[:26]
 p2_deck = deck[26:]
 
-card_comparison(deck.pop(0), deck.pop(0))
-    
+
+
+  
 
 def card_comparisons(p1_card, p2_card):
 
@@ -23,6 +24,9 @@ def play_round(p1_deck, p2_deck):
         p1_card = p1_deck.pop(0)
         p2_card = p2_deck.pop(0)
         
+        p1score = len(p1_deck)
+        p2score = len(p2_deck)
+
         print(f"Player 1's card is {p1_card}")
         print(f"Player 2's card is {p2_card}")
 
@@ -39,7 +43,8 @@ def play_round(p1_deck, p2_deck):
         else:
             print("Tie!")
             tie(p1_card, p2_card)
-
+        
+        print(f"Player 1 is at {p1score} card and Player 2 is at {p2score}")
 
 def tie(p1_deck, p2_deck):
     print("Both players will put three cards down and whoever's fourth card is the biggest wins it all!")
@@ -47,6 +52,9 @@ def tie(p1_deck, p2_deck):
     p1_tiedeck = []
     p2_tiedeck = []
     
+    p1_tiedeck.append(p1_card)
+    p2_tiedeck.append(p1_card)
+
     p1_card = p1_deck.pop(0) 
     p1_tiedeck.append(p1_card)
 
@@ -75,13 +83,13 @@ def tie(p1_deck, p2_deck):
         
         p1.append(p1_card)
         
-        while len p1_tiedeck > 0
+        while len(p1_tiedeck) > 0:
             p1_card = p1_tiedeck(0)
             p1_deck.append(p1_card)
         
         p1.append(p2_card)
     
-        while len p2_tiedeck > 0
+        while len(p2_tiedeck) > 0:
             p2_card = p2_tiedeck.pop(0)
             p1_deck.append(p2_card)
 
@@ -92,13 +100,13 @@ def tie(p1_deck, p2_deck):
         
         p2.append(p1_card)
 
-        while len p1_tiedeck > 0
+        while len(p1_tiedeck) > 0:
             p1_card = p1_tiedeck(0)
             p2_deck.append(p1_card)
 
         p1.append(p2_card)
 
-        while len p2_tiedeck > 0
+        while len(p2_tiedeck) > 0:
             p2_card = p2_tiedeck.pop(0)
             p1_deck.append(p2_card)
 
@@ -107,7 +115,7 @@ def tie(p1_deck, p2_deck):
     
     else:
         print("Tie again!")
-        tie(
+        tie(p1_card, p2_card)
 
 
 
